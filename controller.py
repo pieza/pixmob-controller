@@ -64,7 +64,7 @@ class ManualMode(Mode):
 
     def on_action_change(self, pressed: bool):
         if pressed:
-            send_raw("yellow")
+            send_raw("blue")
         else:
             ok = send_raw("off")
             if not ok:
