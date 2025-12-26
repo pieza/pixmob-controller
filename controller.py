@@ -20,7 +20,7 @@ def raw_path(name: str) -> str:
 def send_raw(name: str) -> bool:
     path = raw_path(name)
     if not os.path.exists(path):
-        print(f"[WARN] No existe: {path}")
+        print(f"[WARN] Path not found: {path}")
         return False
 
     # ir-ctl -d /dev/lirc0 --send <archivo>
@@ -37,7 +37,7 @@ class Mode:
 class AutoMode(Mode):
     name = "automatic"
     def __init__(self):
-        self.colors = ["blue", "yellow", "purple", "green"]
+        self.colors = ["blue", "yellow", "white", "green"]
         self.idx = 0
         self.timer = 0.0
 
@@ -115,7 +115,7 @@ def main():
             if action_pressed != prev_action_pressed:
                 prev_action_pressed = action_pressed
                 current_mode.on_action_change(action_pressed)
-                
+
             current_mode.tick(dt)
 
             time.sleep(0.01)
