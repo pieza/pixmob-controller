@@ -35,16 +35,16 @@ class Mode:
     def on_action_change(self, pressed: bool): pass
 
 class AutoMode(Mode):
-    name = "automatico"
+    name = "automatic"
     def __init__(self):
-        self.colors = ["red", "blue", "yellow", "green"]
+        self.colors = ["blue", "yellow", "purple", "green"]
         self.idx = 0
         self.timer = 0.0
 
     def on_enter(self):
         self.idx = 0
         self.timer = 0.0
-        print("[MODE] Automático")
+        print("[MODE] Automatic")
 
         send_raw(self.colors[self.idx])
 
@@ -115,8 +115,7 @@ def main():
             if action_pressed != prev_action_pressed:
                 prev_action_pressed = action_pressed
                 current_mode.on_action_change(action_pressed)
-
-            # --- Tick del modo actual ---
+                
             current_mode.tick(dt)
 
             time.sleep(0.01)
