@@ -37,7 +37,7 @@ class Mode:
 class AutoMode(Mode):
     name = "automatic"
     def __init__(self):
-        self.colors = ["blue", "yellow", "white", "green"]
+        self.colors = ["blue", "yellow", "pink", "green", "purple"]
         self.idx = 0
         self.timer = 0.0
 
